@@ -37,9 +37,8 @@ fi
 
 [ "$?" = "0" ] || failed "Build Failed"
 
-adb shell /data/killwebruntime.sh
-
 if [ "true" = $INSTALL ] ; then
+   adb shell /data/killwebruntime.sh
    if [ "true" = $APK ] ; then
       adb shell pm disable com.amazon.cloud9
       adb shell pm disable com.amazon.webruntime
