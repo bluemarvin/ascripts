@@ -18,6 +18,7 @@ for CURRENT in $LIST ; do
    adb shell chmod 755 /data/$CURRENT
 done
 rm -f $FILE
+adb shell /data/developer_options.sh
 cd $HOME/src
 tar --exclude=.git\* -czvf $HTML ./html
 adb push $HTML /data/.
