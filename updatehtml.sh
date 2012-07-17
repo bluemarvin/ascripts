@@ -4,7 +4,7 @@ echo ======================
 echo " Upload HTML Files"
 echo ======================
 echo
-if [ "$HTML_SRC_LOCATION" = "" ] ; then
+if [ -z "$HTML_SRC_LOCATION" ] ; then
   SRC_DIR=$HOME/src
 else
   SRC_DIR=$HTML_SRC_LOCATION
