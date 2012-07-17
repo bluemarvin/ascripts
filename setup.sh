@@ -5,26 +5,30 @@ echo " Device Setup Started"
 echo ======================
 echo
 FILE=setup.tgz
-HTML=html.tgz
 STARTDIR=$PWD
+echo
+echo ======================
+echo "   Upload Scripts"
+echo ======================
+echo
 cd $HOME/scripts/device
 LIST=`ls -1 *.sh`
 rm -f $FILE
-tar czvf $FILE *.sh
+tar czvf $FILE *.sh > /dev/null
 adb push $FILE /data/.
-adb shell busybox tar -C /data -xvf /data/$FILE
+adb shell busybox tar -C /data -xvf /data/$FILE > /dev/null
 adb shell rm /data/$FILE
 for CURRENT in $LIST ; do
    adb shell chmod 755 /data/$CURRENT
 done
 rm -f $FILE
+echo
+echo ======================
+echo " Developer Options"
+echo ======================
+echo
 adb shell /data/developer_options.sh
-cd $HOME/src
-tar --exclude=.git\* -czvf $HTML ./html
-adb push $HTML /data/.
-adb shell busybox tar -C /data -xvf /data/$HTML
-adb shell rm /data/$HTML
-rm -f $HTML
+updatehtml.sh
 cd $STARTDIR
 echo
 echo ======================
