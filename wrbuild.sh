@@ -2,6 +2,7 @@
 
 APK=false
 INSTALL=false
+GENERATE=false
 
 failed()
 {
@@ -14,25 +15,29 @@ build_usage()
    echo options:
    echo "	-a            : create APK"
    echo "	-i            : install on device"
+   echo "   -g            : generate gyp project"
 }
 
 
-while getopts ai ARG
+while getopts aig ARG
 do
    case "$ARG" in
    a) APK=true;;
    i) INSTALL=true;;
+   g) GENERATE=true;;
    [?]) build_usage
         exit -1;;
    esac
 done
 cd $HOME/chromium/src
 source build/android/envsetup.sh
-android_gyp
+if [ "true" = $GENERATE ] ; then
+   android_gyp
+fi
 if [ "true" = $APK ] ; then
-  make -j8 chrome_apk
+   make -j8 chrome_apk
 else
-  make -j8 webruntime
+   make -j8 webruntime
 fi
 
 [ "$?" = "0" ] || failed "Build Failed"
