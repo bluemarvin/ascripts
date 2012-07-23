@@ -1,0 +1,14 @@
+syntax on
+set tabstop=3
+set fileformats=unix,dos,mac
+if version >= 700
+   set spell
+   highlight clear SpellBad
+   highlight SpellBad term=standout ctermfg=3 term=underline cterm=underline
+   highlight clear SpellCap
+   highlight SpellCap term=underline cterm=underline
+   highlight clear SpellRare
+   highlight SpellRare term=underline cterm=underline
+   highlight clear SpellLocal
+   highlight SpellLocal term=underline cterm=underline
+endif
