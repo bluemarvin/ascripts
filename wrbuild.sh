@@ -1,5 +1,7 @@
 #!/bin/sh
 
+NUM_OF_JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
+echo Number of jobs: $NUM_OF_JOBS
 APK=false
 INSTALL=false
 GENERATE=false
@@ -45,9 +47,9 @@ if [ "true" = $GENERATE ] ; then
 fi
 
 if [ "true" = $APK ] ; then
-   make -j8 chrome_apk
+   make -j$NUM_OF_JOBS chrome_apk
 else
-   make -j8 webruntime
+   make -j$NUM_OF_JOBS webruntime
 fi
 
 [ "$?" = "0" ] || failed "Build Failed"
