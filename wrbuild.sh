@@ -20,8 +20,8 @@ failed()
 build_usage()
 {
    echo options:
-   echo "	-a            : create APK"
-   echo "	-i            : install on device"
+   echo "   -a            : create APK"
+   echo "   -i            : install on device"
    echo "   -g            : generate gyp project"
    echo "   -s            : stage binary"
 }
