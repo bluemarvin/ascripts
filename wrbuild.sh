@@ -70,9 +70,11 @@ if [ "true" = $INSTALL ] ; then
    if [ "true" = $APK ] ; then
       adb shell pm disable com.amazon.cloud9
       adb shell pm disable com.amazon.webruntime
+      adb shell rm -r /data/data/com.amazon.webruntime
       adb install -r $SRC_DIR/WebRuntime-release.apk
       adb shell pm enable com.amazon.webruntime
       adb shell pm enable com.amazon.cloud9
+      adb shell am start -a android.intent.action.VIEW -n com.amazon.cloud9/.BrowserActivity -d http://en.wikipedia.org/wiki/Microman > /dev/null
    else
       adb push $STAGING_DIR/$BINARY.gz $TARGET_DIR/.
       adb shell busybox gunzip -f $TARGET_DIR/$BINARY.gz
