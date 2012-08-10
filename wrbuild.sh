@@ -24,15 +24,17 @@ build_usage()
    echo "   -i            : install on device"
    echo "   -g            : generate gyp project"
    echo "   -s            : stage binary"
+   echo "   -v            : verbose make"
 }
 
-while getopts aigs ARG
+while getopts aigsv ARG
 do
    case "$ARG" in
    a) APK=true;;
    i) INSTALL=true;;
    g) GENERATE=true;;
    s) STAGE=true;;
+   v) VERBOSE="V=1";;
    [?]) build_usage
         exit -1;;
    esac
@@ -47,9 +49,9 @@ if [ "true" = $GENERATE ] ; then
 fi
 
 if [ "true" = $APK ] ; then
-   make -j$NUM_OF_JOBS chrome_apk
+   make -j$NUM_OF_JOBS $VERBOSE chrome_apk
 else
-   make -j$NUM_OF_JOBS webruntime
+   make -j$NUM_OF_JOBS $VERBOSE webruntime
 fi
 
 [ "$?" = "0" ] || failed "Build Failed"
