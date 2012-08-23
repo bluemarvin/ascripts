@@ -8,8 +8,8 @@ GENERATE=false
 STAGE=false
 STAGING_DIR=$HOME/staging
 BINARY=webruntime
-SRC_DIR=$HOME/chromium/src/out/Release
 TARGET_DIR=/data/data/com.amazon.webruntime/files/webruntime
+SRC_NAME=chromium
 
 failed()
 {
@@ -21,18 +21,20 @@ build_usage()
 {
    echo options:
    echo "   -a            : create APK"
-   echo "   -i            : install on device"
    echo "   -g            : generate gyp project"
+   echo "   -i            : install on device"
+   echo "   -l            : location"
    echo "   -s            : stage binary"
    echo "   -v            : verbose make"
 }
 
-while getopts aigsv ARG
+while getopts agil:sv ARG
 do
    case "$ARG" in
    a) APK=true;;
-   i) INSTALL=true;;
    g) GENERATE=true;;
+   i) INSTALL=true;;
+   l) SRC_NAME=$OPTARG;;
    s) STAGE=true;;
    v) VERBOSE="V=1";;
    [?]) build_usage
@@ -40,7 +42,8 @@ do
    esac
 done
 
-cd $HOME/chromium/src
+SRC_DIR=$HOME/$SRC_NAME/src/out/Release
+cd $HOME/$SRC_NAME/src
 
 source build/android/envsetup.sh
 
