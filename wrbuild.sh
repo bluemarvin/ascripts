@@ -9,7 +9,7 @@ STAGE=false
 STAGING_DIR=$HOME/staging
 BINARY=webruntime
 TARGET_DIR=/data/data/com.amazon.webruntime/files/webruntime
-SRC_NAME=chromium
+SRC_NAME=chromium_16
 BUILD_TYPE=Release
 SKIP_STRIP=false
 

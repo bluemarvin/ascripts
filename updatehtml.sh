@@ -13,9 +13,9 @@ HTML=html.tgz
 STARTDIR=$PWD
 cd $SRC_DIR
 tar --exclude=.git\* -czvf $HTML ./html > /dev/null
-adb push $HTML /data/.
-adb shell busybox tar -C /data -xvf /data/$HTML > /dev/null
-adb shell rm /data/$HTML
+adb push $HTML /mnt/sdcard/.
+adb shell busybox tar -C /mnt/sdcard -xvf /mnt/sdcard/$HTML > /dev/null
+adb shell rm /mnt/sdcard/$HTML
 rm -f $HTML
 cd $STARTDIR
 

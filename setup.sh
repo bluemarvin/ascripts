@@ -29,7 +29,7 @@ echo ======================
 echo
 adb shell /data/developer_options.sh
 # Don't bother uploading html files since they can no longer be loaded in the browser.
-#updatehtml.sh
+updatehtml.sh
 cd $STARTDIR
 echo
 echo ======================
