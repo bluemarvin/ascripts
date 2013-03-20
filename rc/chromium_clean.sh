@@ -1,7 +1,7 @@
 #!/bin/sh
 NUM_OF_JOBS=`cat /proc/cpuinfo | grep processor | wc -l`
 
-alias go="cd $HOME/chromium_stock/src"
+alias go="cd $HOME/chromium_clean/Cloud9NativeChromiumBuild/src"
 alias bld="time make -j$NUM_OF_JOBS BUILDTYPE=Release"
 alias dbld="time make -j$NUM_OF_JOBS BUILDTYPE=Debug"
 alias nbld="time ninja -C out/Release"
@@ -15,6 +15,6 @@ else
    export PATH=$ORIG_PATH:$MY_PATH
 fi
 
-source $HOME/chromium_stock/src/build/android/envsetup.sh
+source $HOME/chromium_clean/Cloud9NativeChromiumBuild/src/build/android/envsetup.sh
 
 export PS1='\[\e[1;31m\]ANDROID\[\e[m\]:\w$(__git_ps1 " [%s]")\n>> '
