@@ -1,0 +1,10 @@
+# Add the correct paths here:
+ac_add_options --with-android-ndk="$HOME/android-ndk-r9"
+ac_add_options --with-android-sdk="$HOME/adt-bundle-mac-x86_64-20130729/sdk/platforms/android-18"
+
+# android options
+ac_add_options --enable-application=mobile/android
+ac_add_options --target=arm-linux-androideabi
+
+ac_add_options --with-ccache
+
