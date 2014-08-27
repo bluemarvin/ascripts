@@ -1,2 +1,2 @@
 #!/bin/sh
-find . -name \*.js | xargs grep -n $1
+find . \( -name '*.js' -o -name '*.jsm' \) | xargs grep -n $1
