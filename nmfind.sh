@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if [ -z $NM ] ; then
+  NM=nm
+fi
+
 SYMBOL=$1
 
 for FILE in *.a *.so ; do
-  if [ -n "`nm $FILE 2> /dev/null | grep -sl $SYMBOL`" ] ; then
+  if [ -n "`$NM $FILE 2> /dev/null | grep -sl $SYMBOL`" ] ; then
+    echo
     echo $FILE
-    nm $FILE | grep $SYMBOL
+    $NM $FILE | grep $SYMBOL
   fi
 done
