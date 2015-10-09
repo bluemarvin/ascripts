@@ -64,5 +64,8 @@ if version >= 700
 
    au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 endif
-
+" Stop auto comments!
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Turn off auto indent!
 filetype indent off
+

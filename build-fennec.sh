@@ -1,2 +1,2 @@
 #!/bin/sh
-./mach build && ./mach package && adb install -r `find . -name fennec-\*.android-arm.apk`
+make -f client.mk && make -f client.mk package && install-fennec.sh
