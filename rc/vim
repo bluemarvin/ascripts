@@ -58,9 +58,10 @@ if version >= 700
    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
    au InsertLeave * match ExtraWhitespace /\s\+$/
    au BufWinLeave * call clearmatches()
-   au FileType python,c,cpp,java set colorcolumn=81
-   highlight ColorColumn ctermbg=0
-   au BufWinLeave * set colorcolumn=0
+"   Color column at 81 chars more hassle than it is worth
+"   au FileType python,c,cpp,java set colorcolumn=81
+"   highlight ColorColumn ctermbg=0
+"   au BufWinLeave * set colorcolumn=0
 
    au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 endif
@@ -68,4 +69,5 @@ endif
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Turn off auto indent!
 filetype indent off
-
+set autoread
+au BufNewFile,BufRead *.cpp set syntax=cpp11
