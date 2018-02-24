@@ -19,7 +19,8 @@ if test "$BUILD_SETTING_OPT" = "true" ; then
 fi
 
 if [ -f ./mach ] ; then
-./mach build && ./mach package && ./mach gradle geckoview:bundleWithGeckoBinaries
+./mach build && ./mach package && ./mach gradle geckoview:bundleLocalWithGeckoBinariesNoMinApiDebug
+#geckoview:bundleWithGeckoBinaries
 else
 echo Error, mach not found
 fi
