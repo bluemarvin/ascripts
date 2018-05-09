@@ -20,6 +20,7 @@ fi
 
 if [ -f ./mach ] ; then
 ./mach build && ./mach package && ./mach gradle geckoview:bundleLocalWithGeckoBinariesNoMinApiDebug
+#./mach gradle uploadArchives
 #geckoview:bundleWithGeckoBinaries
 else
 echo Error, mach not found
