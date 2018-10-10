@@ -71,3 +71,4 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 filetype indent off
 set autoread
 au BufNewFile,BufRead *.cpp set syntax=cpp11
+au BufNewFile,BufRead *.jsm set syntax=javascript
