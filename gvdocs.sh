@@ -1,4 +1,5 @@
 #!/bin/sh
+echo PATH=$PATH
 build_usage()
 {
    echo options:
@@ -8,7 +9,7 @@ build_usage()
 while getopts d ARG
 do
    case "$ARG" in
-   o) export BUILD_SETTING_DEBUG=true;;
+   d) export BUILD_SETTING_DEBUG=true;;
    [?]) build_usage
         exit -1;;
    esac
@@ -19,7 +20,7 @@ if test "$BUILD_SETTING_DEBUG" = "true" ; then
 fi
 
 if [ -f ./mach ] ; then
-./mach gradle geckoview_example:installLocalWithGeckoBinariesDebug
+./mach android archive-geckoview
 else
 echo Error, mach not found
 fi
