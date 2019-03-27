@@ -19,7 +19,7 @@ if test "$BUILD_SETTING_DEBUG" = "true" ; then
 fi
 
 if [ -f ./mach ] ; then
-./mach gradle geckoview_example:installLocalWithGeckoBinariesDebug
+./mach gradle geckoview_example:installWithGeckoBinariesDebug
 else
 echo Error, mach not found
 fi

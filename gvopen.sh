@@ -13,4 +13,4 @@ while [ -n "$1" ]; do
     shift
 done
 
-exec adb shell am start -a android.intent.action.VIEW -d "$url" --ez use_multiprocess $multi org.mozilla.geckoview_example
+exec adb shell am start -a android.intent.action.VIEW -d "$url" --ez use_multiprocess $multi org.mozilla.geckoview_example/.GeckoViewActivity
