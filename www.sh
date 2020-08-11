@@ -4,5 +4,5 @@ if [ -n "$1" ] ; then
 else
   PORT="8000"
 fi
-
+ifconfig | grep inet[^6] | grep -v 127.0.0.1
 python -m SimpleHTTPServer $PORT

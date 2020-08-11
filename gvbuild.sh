@@ -20,7 +20,8 @@ if test "$BUILD_SETTING_DEBUG" = "true" ; then
 fi
 
 if [ -f ./mach ] ; then
-./mach build && ./mach package && ./mach gradle geckoview:bundleWithGeckoBinariesDebug
+./mach build && ./mach package && ./mach gradle geckoview:publishWithGeckoBinariesDebugPublicationToMavenRepository
+#./mach build && ./mach package && ./mach gradle geckoview:bundleWithGeckoBinariesDebug
 #./mach android archive-geckoview
 #geckoview:bundleLocalWithGeckoBinariesNoMinApiDebug
 #./mach gradle uploadArchives

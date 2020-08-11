@@ -1,0 +1,24 @@
+# open an URL
+adb shell am start -a android.intent.action.VIEW -d "http://url.to.open.com" org.mozilla.vrbrowser/.VRBrowserActivity
+
+# launch FxR from command line
+adb shell am start -a android.intent.action.LAUNCH org.mozilla.vrbrowser/.VRBrowserActivity
+
+# Input text
+adb shell input text "text to send to FxR"
+
+# Uninstall FxR
+adb shell pm clear org.mozilla.vrbrowser
+adb uninstall org.mozilla.vrbrowser
+
+# Kill FxR
+adb shell am force-stop org.mozilla.vrbrowser
+
+# Screen record (mostly needed for HTC devices that don't have a built in recorder)
+adb shell screenrecord /sdcard/file_name.mp4
+# <Ctrl> C to stop recording.
+adb pull /sdcard/file_name.mp4
+
+# open URL in Oculus Browser
+adb shell am start -n com.oculus.vrshell/.MainActivity -d apk://com.oculus.browser -e uri "http://url.to.open.com"
+
